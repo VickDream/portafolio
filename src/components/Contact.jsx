@@ -2,7 +2,7 @@ import '../styles/Contact.css'
 import { NavLink } from 'react-router-dom'
 import { FiGithub } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa6";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaRegFilePdf } from "react-icons/fa";
 
 function Contact() {
   return (
@@ -33,6 +33,15 @@ function Contact() {
               target='_blank'
             >
               <FaWhatsapp />
+            </NavLink>
+            <NavLink
+              to="/cv.pdf"
+              target='_blank'
+              rel="noopener noreferrer" 
+              className="social-button"
+              title="Ver mi CV"
+            >
+              <FaRegFilePdf />
             </NavLink>
           </div>
         </div>
