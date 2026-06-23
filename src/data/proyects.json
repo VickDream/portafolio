@@ -1,21 +1,21 @@
 [
   {
     "id": 1,
-    "img": "/coyote.png",
+    "img": "/coyote.webp",
     "name": "Coyote Tacos de Asada y Hamburguesas",
     "description": "Una Lading page de un negocio de comida norteña",
     "link": "https://coyote-596.pages.dev/"
   },
   {
     "id": 2,
-    "img": "/neonco.png",
+    "img": "/neonco.webp",
     "name": "NE.ON.CO Rave HardTecho",
     "description": "Un rave que la rompera antes de que acabe el año",
     "link": "https://ne-on-co.pages.dev/"
   },
   {
     "id": 3,
-    "img": "/signozodiacal.png",
+    "img": "/signozodiacal.webp",
     "name": "Signo Zodiacal",
     "description": "Descubre tu descripcion semanal y enterate de los último",
     "link": "https://signozodiacal.pages.dev/"
