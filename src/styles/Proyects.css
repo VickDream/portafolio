@@ -1,0 +1,84 @@
+/* ==========================================================================
+   SECCIÓN PROYECTOS (CONTENEDOR PADRE)
+   ========================================================================== */
+.proyects-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: calc(100vh - 70px);
+  padding: 4rem 2rem;
+  width: 100%;
+  /* Ocupa todo el ancho de la pantalla */
+  box-sizing: border-box;
+}
+
+/* Título */
+.proyects-section h2 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   REJILLA DE TARJETAS (CUADRÍCULA HORIZONTAL)
+   ========================================================================== */
+.proyect-grid {
+  display: grid;
+  /* Crea tantas columnas de 300px como quepan en la pantalla horizontalmente */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  /* Espacio limpio entre las tarjetas */
+  width: 100%;
+  max-width: 1100px;
+  /* Límite de ancho para que no se estiren de más */
+  margin: 0 auto;
+  /* Centra la rejilla completa en la pantalla */
+  justify-content: center;
+}
+
+/* ==========================================================================
+   RESPONSIVO (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Tabletas (Pantallas medianas) */
+@media (max-width: 768px) {
+  .proyects-section {
+    padding: 3rem 1.5rem;
+    /* Reducimos un poco el espacio exterior */
+  }
+
+  .proyects-section h2 {
+    font-size: 2rem;
+    /* Título un poco más compacto */
+    margin-bottom: 2rem;
+    /* Menos espacio muerto antes de las tarjetas */
+  }
+
+  .proyect-grid {
+    gap: 1.5rem;
+    /* Tarjetas ligeramente más juntas */
+  }
+}
+
+/* Celulares (Pantallas pequeñas) */
+@media (max-width: 480px) {
+  .proyects-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .proyects-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .proyect-grid {
+    grid-template-columns: 1fr;
+    /* Una sola columna fluida que ocupa todo el ancho */
+    gap: 1.2rem;
+    max-width: 340px;
+    /* Evita que las tarjetas se estiren infinito hacia los lados */
+  }
+}

@@ -1,0 +1,111 @@
+/* ==========================================================================
+   TARJETA INDIVIDUAL DE PROYECTO
+   ========================================================================== */
+.banner-proeyect {
+  position: relative;
+  width: 100%;
+  /* Ocupa el ancho completo de su contenedor en móvil */
+  max-width: 340px;
+  /* Límite de ancho para pantallas grandes */
+  height: 220px;
+  /* Fondo oscuro por si la imagen tarda en cargar */
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px var(--color-link);
+  /* Centra la tarjeta en pantallas móviles */
+}
+
+/* Efecto sutil de elevación al pasar el mouse por la tarjeta */
+.banner-proeyect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--color-shadow);
+}
+
+/* ==========================================================================
+   VISTA 1: IMAGEN DE FONDO
+   ========================================================================== */
+.banner-proeyect img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Evita que la imagen se deforme */
+  display: block;
+}
+
+/* ==========================================================================
+   VISTA 2: INFORMACIÓN AL HACER HOVER
+   ========================================================================== */
+.info-proyecto {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #0f0f11;
+  /* Color de fondo minimalista oscuro */
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   RESET DEL ENLACE GIGANTE (NavLink)
+   ========================================================================== */
+.proyecto-link-wrapper {
+  text-decoration: none;    /* Quita el subrayado de texto */
+  color: inherit;           /* Hereda los colores ya definidos en h3 y p */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;             /* Hace que absolutamente toda la tarjeta sea cliqueable */
+}
+
+/* Estilos para el título del proyecto */
+.info-proyecto h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+/* Micro-efecto visual opcional: resalta el título al apuntar con precisión */
+.proyecto-link-wrapper:hover h3 {
+  color: var(--color-text);
+}
+
+/* Estilos para la descripción */
+.info-proyecto p {
+  font-size: 0.9rem;
+  color: var(--color-link2);
+  /* Gris claro para que sea legible pero sutil */
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVO (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Ajustes opcionales para pantallas muy pequeñas (celulares compactos) */
+@media (max-width: 360px) {
+  .banner-proeyect {
+    max-width: 100%;
+    height: 200px;
+    /* Reducimos un poco el alto para pantallas micro */
+  }
+
+  .info-proyecto h3 {
+    font-size: 1.1rem;
+  }
+
+  .info-proyecto p {
+    font-size: 0.8rem;
+  }
+}

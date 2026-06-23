@@ -1,0 +1,129 @@
+/* ==========================================================================
+   SECCIÓN DE PRESENTACIÓN GENERAL
+   ========================================================================== */
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 70px);
+  /* Ocupa el alto de la pantalla restando el navbar */
+  /* Fondo oscuro unificado */
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Contenedor del contenido interno */
+.presentaton-content {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Alineación minimalista a la izquierda */
+  text-align: left;
+}
+
+/* Título Principal (¡Hola! Soy...) */
+.presentaton-content h1 {
+  font-size: 3.5rem;
+  margin: 0 0 1rem 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+/* Subtítulo (Enfocado en crear...) */
+.presentaton-content h2 {
+  font-size: 1.8rem;
+  color: #b3b3b3;
+  /* Gris claro para jerarquía visual */
+  margin: 0 0 1.5rem 0;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* Párrafo Descriptivo */
+.presentaton-content p {
+  font-size: 1.1rem;
+  color: #8a8a93;
+  /* Gris medio para lectura cómoda */
+  line-height: 1.7;
+  margin: 0 0 2.5rem 0;
+  max-width: 650px;
+}
+
+/* ==========================================================================
+   BOTÓN DE ACCIÓN (NavLink)
+   ========================================================================== */
+.presentation-action {
+  width: 100%;
+}
+
+.btnproyects {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto hover del botón invertido */
+.btnproyects:hover {
+  background-color: transparent;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   RESPONSIVO (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Tabletas */
+@media (max-width: 768px) {
+  .presentaton-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .presentaton-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .presentaton-content p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+  section {
+    padding: 1.5rem 1rem;
+  }
+
+  .presentaton-content h1 {
+    font-size: 2.2rem;
+    /* Más compacto en pantallas chicas */
+  }
+
+  .presentaton-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .presentaton-content p {
+    font-size: 0.95rem;
+  }
+
+  /* El botón ocupa el ancho completo en móvil para mejor accesibilidad touch */
+  .btnproyects {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,100 @@
+/* ==========================================================================
+   SECCIÓN DE CONTACTO MINIMALISTA
+   ========================================================================== */
+.contact-minimal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  /* Fondo oscuro profundo */
+  min-height: 60vh;
+  /* Asegura buen espacio vertical */
+  box-sizing: border-box;
+}
+
+/* Título */
+.contact-minimal h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Párrafo sutil */
+.contact-minimal p {
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   CONTENEDOR DE REDES (FLEXBOX)
+   ========================================================================== */
+.contact-minimal>div {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  /* Si no caben en móvil, se bajan automáticamente */
+  justify-content: center;
+}
+
+/* Estilos para los NavLink de las redes */
+.contact-minimal a {
+  text-decoration: none;
+  color: var(--color-link);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 1rem;
+  border: 1px solid var(--color-link);
+  /* Borde fino y sutil */
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  min-width: 110px;
+  /* Mismo ancho base para simetría */
+  display: inline-block;
+}
+
+/* Efecto Hover en las Redes */
+.contact-minimal a:hover {
+  background-color: var(--color-text);
+  color: var(--bg-color);
+  /* Invierte colores para un contraste limpio */
+  border-color: var(--color-text);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   RESPONSIVO (MEDIA QUERIES)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .contact-minimal {
+    padding: 3rem 1rem;
+  }
+
+  .contact-minimal h2 {
+    font-size: 2rem;
+    /* Título un poco más pequeño en móvil */
+  }
+
+  .contact-minimal p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* En celulares pequeños los botones ocupan casi todo el ancho */
+  .contact-minimal>div {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+    /* Centrado y cómodo para el pulgar */
+    gap: 1rem;
+  }
+
+  .contact-minimal a {
+    width: 100%;
+  }
+}

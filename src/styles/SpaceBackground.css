@@ -1,0 +1,82 @@
+.galaxia-contenedor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  /* Mantenemos un punto de fuga exacto en el centro del viewport */
+  perspective: 1000px; 
+}
+
+/* ==========================================================================
+   ANIMACIÓN DE ROTACIÓN ORBITAL (VÓRTICE)
+   ========================================================================== */
+.vortice-espiral {
+  position: absolute;
+  width: 150vw;
+  height: 150vh;
+  top: -25vh;
+  left: -25vw;
+  /* Gira de manera constante e infinita alrededor del centro */
+  animation: rotarGalaxia 120s linear infinite;
+  transform-origin: center center;
+}
+
+.estrella-viva {
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: destelloCosmico infinite ease-in-out alternate;
+}
+
+/* ==========================================================================
+   ESTRUCTURA DE LA ESTRELLA FUGAZ
+   ========================================================================== */
+.estrella-fugaz {
+  position: absolute;
+  /* Creamos una línea delgada que simula la estela de luz */
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 50%;
+  opacity: 0;
+  /* Ejecuta la animación una sola vez por cada inyección de JS */
+  animation: viajeFugaz ease-in once;
+}
+
+/* Animación: Destello de las estrellas normales */
+@keyframes destelloCosmico {
+  0% { opacity: 0.1; transform: scale(0.6); }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; transform: scale(1.2); }
+}
+
+/* Animación: Rotación continua de la galaxia completa */
+@keyframes rotarGalaxia {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Animación: El disparo de la estrella fugaz en diagonal */
+@keyframes viajeFugaz {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-45deg) scaleX(1);
+    width: 0px;
+  }
+  15% {
+    opacity: 1;
+    /* Al estirar el width simulamos el rayazo de luz largo */
+    width: 120px; 
+  }
+  100% {
+    opacity: 0;
+    /* Cruza a toda velocidad hacia la izquierda y abajo */
+    transform: translate(-450px, 450px) rotate(-45deg) scaleX(2);
+    width: 0px;
+  }
+}

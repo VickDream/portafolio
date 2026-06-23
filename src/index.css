@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap');
+
+:root {
+	--bg-color: #0d0d0f;
+	--color-text: #fff;
+	--color-link: #555;
+	--color-link2: #777;
+	--color-shadow: #111;
+}
+
+body {
+	background: var(--bg-color);
+	color: var(--color-text);
+  font-family: 'Outfit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Tipografía para tus títulos (puedes darle un toque de tracking negativo) */
+h1, h2, h3 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em; 
+}
+
+/* 4. Tipografía para párrafos */
+p {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+}
