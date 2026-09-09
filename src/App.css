@@ -1,0 +1,66 @@
+:root {
+  --bg-primary: #0b0914;
+  --bg-secondary: #141026;
+  --color-text: #f3e8ff;
+  --color-muted: #9ca3af;
+  --color-accent: #a855f7;
+  --color-accent-hover: #c084fc;
+  --border-color: #2e234a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+.portfolio-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  /* Ocultar barra de desplazamiento para estética limpia */
+  scrollbar-width: none; 
+}
+
+.portfolio-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Estilos base de sección full-screen y responsivas */
+.full-section {
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Clase que se activa con JS al hacer scroll y entrar en vista */
+.full-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .full-section {
+    padding: 1rem;
+  }
+}

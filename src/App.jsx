@@ -1,30 +1,42 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom' // <- Asegúrate de importar BrowserRouter
-import './App.css'
-import Navbar from './components/Navbar'
-import Presentation from './components/Presentation'
-import Proyects from './components/Proyects'
-import Contact from './components/Contact'
-import SpaceBackground from './components/SpaceBackground'
+import React, { useEffect } from 'react';
+import Hero from './components/Hero';
+import Projects from './components/Projects';
+import Experience from './components/Experience';
+import Socials from './components/Socials';
+import './App.css';
 
 function App() {
-  return (
-    // Cambiamos <Router> por <BrowserRouter>
-    <BrowserRouter>
-      <div className="app-container">
-        <SpaceBackground />
-        <Navbar />
+  useEffect(() => {
+    const sections = document.querySelectorAll('.full-section');
 
-        <main>
-          <Routes>
-            <Route path="/" element={<Presentation />} />
-            <Route path="/proyects" element={<Proyects />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
-  )
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          } else {
+            // Si quieres que se vuelva a desvanecer al salir, déjalo. 
+            // Si prefieres que se quede visible una vez cargado, borra el else.
+            entry.target.classList.remove('active');
+          }
+        });
+      },
+      { threshold: 0.5 } // Se activa cuando al menos la mitad de la sección es visible
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="portfolio-container">
+      <Hero />
+      <Projects />
+      <Experience />
+      <Socials />
+    </div>
+  );
 }
 
-export default App
+export default App;
