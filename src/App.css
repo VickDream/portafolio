@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 :root {
   --bg-primary: #0b0914;
   --bg-secondary: #141026;
@@ -6,6 +8,9 @@
   --color-accent: #a855f7;
   --color-accent-hover: #c084fc;
   --border-color: #2e234a;
+  
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 * {
@@ -19,26 +24,100 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-sans);
   background-color: var(--bg-primary);
   color: var(--color-text);
   overflow-x: hidden;
 }
 
 .portfolio-container {
+  position: relative;
   height: 100vh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
-  /* Ocultar barra de desplazamiento para estética limpia */
   scrollbar-width: none; 
+  overflow-x: hidden;
 }
 
 .portfolio-container::-webkit-scrollbar {
   display: none;
 }
 
+/* --- Fondo Definitivo: Moiré con Movimiento Libre en Todas Direcciones --- */
+.portfolio-container::before,
+.portfolio-container::after {
+  content: '';
+  position: fixed;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  pointer-events: none;
+  z-index: -1;
+  transform: translateZ(0); /* Aceleración por hardware pura */
+}
+
+/* Capa 1: Púrpura con desplazamiento multidireccional amplio y giro lento */
+.portfolio-container::before {
+  background-image: radial-gradient(rgba(168, 85, 247, 0.14) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+  animation: wanderDriftA 26s ease-in-out infinite alternate, spinA 40s linear infinite;
+}
+
+/* Capa 2: Azul con trayectoria de desplazamiento cruzada y contra-giro */
+.portfolio-container::after {
+  background-image: radial-gradient(rgba(59, 130, 246, 0.11) 1.5px, transparent 1.5px);
+  background-size: 38px 38px;
+  animation: wanderDriftB 32s ease-in-out infinite alternate, spinB 35s linear infinite;
+}
+
+/* Animaciones de desplazamiento libre por toda la pantalla (Ejes X e Y) */
+@keyframes wanderDriftA {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-4%, 5%) scale(1.05);
+  }
+  66% {
+    transform: translate(5%, -3%) scale(0.95);
+  }
+  100% {
+    transform: translate(-3%, -4%) scale(1.02);
+  }
+}
+
+@keyframes wanderDriftB {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(5%, -4%) scale(0.96);
+  }
+  66% {
+    transform: translate(-4%, 6%) scale(1.04);
+  }
+  100% {
+    transform: translate(3%, 3%) scale(0.98);
+  }
+}
+
+/* Animaciones de rotación independientes */
+@keyframes spinA {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+
+@keyframes spinB {
+  from { rotate: 0deg; }
+  to { rotate: -360deg; }
+}
+/* --------------------------------------------------------------------- */
+
 /* Estilos base de sección full-screen y responsivas */
 .full-section {
+  position: relative;
+  z-index: 1;
   height: 100vh;
   width: 100%;
   scroll-snap-align: start;

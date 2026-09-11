@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
-import Experience from './components/Experience';
+// import Experience from './components/Experience';
 import Socials from './components/Socials';
 import './App.css';
 
@@ -14,14 +14,10 @@ function App() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active');
-          } else {
-            // Si quieres que se vuelva a desvanecer al salir, déjalo. 
-            // Si prefieres que se quede visible una vez cargado, borra el else.
-            entry.target.classList.remove('active');
           }
         });
       },
-      { threshold: 0.5 } // Se activa cuando al menos la mitad de la sección es visible
+      { threshold: 0.2 } // Reducimos el umbral al 20% para que se active más fácil
     );
 
     sections.forEach((section) => observer.observe(section));
@@ -33,7 +29,7 @@ function App() {
     <div className="portfolio-container">
       <Hero />
       <Projects />
-      <Experience />
+      {/*<Experience />*/}
       <Socials />
     </div>
   );

@@ -29,28 +29,28 @@ export const projectsData = [
   },
   {
     id: 5,
-    img: "enigmasoluciones.png",
+    img: "enigmasoluciones.webp",
     name: "Enigma Soluciones Gráficas",
     description: "Lo mejor del diseño gráfico.",
     link: "https://enigmapublicidadydiseno.pages.dev/"
   },
   {
     id: 6,
-    img: "tarjeta_enigma.png",
+    img: "tarjeta_enigma.webp",
     name: "Enigma Soluciones Gráficas",
     description: "Lo mejor del diseño gráfico.",
     link: "https://enigmapublicidadydiseno-104.pages.dev/"
   },
   {
     id: 7,
-    img: "mayte_xv.png",
+    img: "mayte_xv.webp",
     name: "Mayte XV",
     description: "Un regalo especial para una persona especial",
     link: "https://mayte-xv.pages.dev/"
   },
   {
     id: 8,
-    img: "marianabarcenasdj.png",
+    img: "marianabarcenasdj.webp",
     name: "Mariana Barcenas",
     description: "Una super talentonsa y rockstar DJ's",
     link: "https://marianabarcenasdj.pages.dev/"

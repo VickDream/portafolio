@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   padding: 2rem 1rem;
-  background-color: var(--bg-primary);
+  /*background-color: var(--bg-primary);*/
   min-height: 100vh;
 }
 
@@ -125,5 +125,86 @@
     max-width: 280px;
     height: 320px;
     margin: 0 auto;
+  }
+}
+
+/*ultimo agregado*/
+
+.typing-cursor {
+  font-weight: 300;
+  color: var(--color-accent);
+  animation: blinkCursor 0.7s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* --- Efecto Holográfico Interactivo en la Foto --- */
+.hero-img-wrapper {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.hero-img-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.hero-img-wrapper.interactive-pulse img {
+  filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.8)) brightness(1.15);
+  transition: filter 0.2s ease;
+}
+
+/* --- Indicador de Scroll Minimalista Animado --- */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.scroll-indicator span {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.scroll-mouse {
+  width: 22px;
+  height: 36px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+  background: rgba(11, 9, 20, 0.4);
+}
+
+.scroll-wheel {
+  width: 3px;
+  height: 6px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+  animation: scrollMouseWheel 1.5s infinite;
+}
+
+@keyframes scrollMouseWheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
   }
 }

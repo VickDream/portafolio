@@ -1,37 +1,96 @@
 .socials-section {
-  background-color: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  text-align: center;
+  min-height: 80vh;
 }
 
-.socials-section h2 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+.socials-content-wrapper {
+  max-width: 700px;
+  width: 100%;
+}
+
+.socials-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color-text);
+  font-weight: 800;
   margin-bottom: 0.5rem;
 }
 
-.socials-section p {
+.socials-subtitle {
   color: var(--color-muted);
-  margin-bottom: 2rem;
-  font-size: 0.95rem;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  margin-bottom: 2.5rem;
 }
 
+/* Contenedor de enlaces */
 .social-links {
   display: flex;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 2rem;
   justify-content: center;
+  align-items: center;
 }
 
-.social-links a {
-  color: var(--color-text);
-  background-color: var(--bg-primary);
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
   text-decoration: none;
-  border: 1px solid var(--border-color);
-  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  padding: 0;
+  cursor: pointer;
 }
 
-.social-links a:hover {
-  background-color: var(--color-accent);
-  color: var(--bg-primary);
-  border-color: var(--color-accent);
+/* Caja del icono */
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--color-text);
+  padding: 12px;
+  border-radius: 50%;
+  background-color: transparent; /* Sin fondo estático */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto hover global: elevación, escala y la inclinación (rotate) */
+.social-btn:hover .icon-box {
+  transform: translateY(-5px) scale(1.15) rotate(6deg);
+  background-color: transparent; /* Nos aseguramos de que no aparezca ningún fondo */
+}
+
+/* Brillos puros sin círculos de fondo para cada red */
+.social-btn.github:hover .icon-box {
+  color: #333;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+  background: #fff;
+}
+
+.social-btn.linkedin:hover .icon-box {
+  color: #0a66c2;
+  box-shadow: 0 0 25px rgba(10, 102, 194, 0.7);
+  background: #0a66c2;
+}
+
+.social-btn.whatsapp:hover .icon-box {
+  color: #25d366;
+  box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
+}
+
+.social-btn.instagram:hover .icon-box {
+  color: #fff;
+  box-shadow: 0 0 25px rgba(228, 64, 95, 0.7);
+  background: #e4405f;
+}
+
+.social-btn.email:hover .icon-box {
+  color: #333;
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.7);
+  background: var(--color-accent);
 }
