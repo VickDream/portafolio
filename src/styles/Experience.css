@@ -1,34 +1,211 @@
-.experience-section h2 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  margin-bottom: 2rem;
-}
+/* src/styles/Experience.css */
 
-.stats-container {
+.experience-section {
+  /* Aseguramos que el contenido no se desborde de los 100vh */
+  padding: 1rem;
   display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+}
+
+.timeline-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 1100px; /* Un poco más ancho para la versión horizontal */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Reducido de 3rem a 1.5rem */
 }
 
-.stat-box {
-  background: var(--bg-secondary);
-  padding: 1.5rem 2.5rem;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
+.timeline-header {
   text-align: center;
-  flex: 1;
-  min-width: 220px;
 }
 
-.stat-box h3 {
-  font-size: clamp(2.5rem, 5vw, 3rem);
-  color: var(--color-accent);
+.timeline-header h2 {
+  font-size: 2rem; /* Reducido de 2.8rem */
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-header p {
+  color: var(--color-muted, #9ca3af);
+  font-size: 0.95rem; /* Reducido */
+}
+
+/* --- Contenedor de la Línea de Tiempo --- */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* Reducido de 2.5rem */
+  padding-left: 1.5rem; /* Reducido */
+}
+
+/* La línea vertical brillante */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, 
+    transparent, 
+    var(--color-accent, #a855f7) 10%, 
+    var(--color-accent, #a855f7) 90%, 
+    transparent
+  );
+  opacity: 0.4;
+}
+
+/* --- Items del Timeline --- */
+.timeline-item {
+  position: relative;
+  padding-left: 1.5rem; /* Reducido */
+}
+
+/* El punto brillante */
+.timeline-dot {
+  position: absolute;
+  left: -1.8rem; /* Ajustado a la nueva línea */
+  top: 0.4rem;
+  width: 12px; /* Más pequeño */
+  height: 12px;
+  background-color: var(--color-accent, #a855f7);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+  border: 2px solid #0b0914;
+}
+
+/* Contenido del item */
+.timeline-content {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem; /* Reducido de 1.5rem */
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateX(3px);
+}
+
+.timeline-date {
+  display: inline-block;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.75rem; /* Más pequeño */
+  color: var(--color-accent, #a855f7);
+  background: rgba(168, 85, 247, 0.1);
+  padding: 0.1rem 0.6rem;
+  border-radius: 20px;
   margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
-.stat-box p {
-  color: var(--color-muted);
-  font-size: 0.95rem;
+.timeline-content h3 {
+  font-size: 1.1rem; /* Reducido de 1.4rem */
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-content p {
+  color: var(--color-muted, #9ca3af);
+  font-size: 0.9rem; /* Reducido */
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
+
+/* Etiquetas de tecnologías */
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.timeline-tags span {
+  font-size: 0.7rem; /* Más pequeño */
+  color: #e0e0e0;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   RESPONSIVE: En pantallas grandes, Timeline Horizontal
+   ========================================= */
+@media (min-width: 1024px) {
+  .timeline {
+    flex-direction: row; /* Cambia a horizontal */
+    gap: 1.5rem;
+    padding-left: 0;
+    padding-top: 1.5rem; /* Espacio para la línea horizontal */
+  }
+
+  /* La línea ahora es horizontal */
+  .timeline::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, 
+      transparent, 
+      var(--color-accent, #a855f7) 10%, 
+      var(--color-accent, #a855f7) 90%, 
+      transparent
+    );
+  }
+
+  .timeline-item {
+    flex: 1; /* Ocupan el mismo ancho */
+    padding-left: 0;
+    padding-top: 1.5rem; /* Espacio para el punto */
+  }
+
+  .timeline-dot {
+    left: 50%; /* Centrado en la columna */
+    transform: translateX(-50%);
+    top: -0.4rem; /* Ajustado a la línea horizontal */
+  }
+
+  .timeline-content {
+    text-align: center; /* Centramos el texto en horizontal */
+    height: 100%; /* Para que todas las tarjetas tengan la misma altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .timeline-tags {
+    justify-content: center; /* Centramos las etiquetas */
+  }
+}
+
+/* =========================================
+   RESPONSIVE: Ajustes para móviles muy pequeños
+   ========================================= */
+@media (max-width: 480px) {
+  .timeline-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .timeline-header p {
+    font-size: 0.85rem;
+  }
+
+  .timeline-content {
+    padding: 0.8rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 1rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.85rem;
+  }
 }

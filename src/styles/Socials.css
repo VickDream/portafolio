@@ -1,3 +1,5 @@
+/* src/styles/Socials.css */
+
 .socials-section {
   display: flex;
   flex-direction: column;
@@ -8,9 +10,23 @@
   min-height: 80vh;
 }
 
+/* Envolvemos el contenido en un panel de cristal para unificar todo */
 .socials-content-wrapper {
   max-width: 700px;
   width: 100%;
+  /* Toque Glass */
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  transition: all 0.4s ease;
+}
+
+.socials-content-wrapper:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(168, 85, 247, 0.05);
 }
 
 .socials-title {
@@ -18,6 +34,7 @@
   color: var(--color-text);
   font-weight: 800;
   margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
 }
 
 .socials-subtitle {
@@ -30,7 +47,7 @@
 .social-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.5rem;
   justify-content: center;
   align-items: center;
 }
@@ -46,51 +63,50 @@
   cursor: pointer;
 }
 
-/* Caja del icono */
+/* --- Caja del icono (Glass) --- */
 .icon-box {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--color-text);
-  padding: 12px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background-color: transparent; /* Sin fondo estático */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Toque Glass en cada icono */
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Efecto hover global: elevación, escala y la inclinación (rotate) */
+/* --- Hover unificado con la paleta morada --- */
 .social-btn:hover .icon-box {
-  transform: translateY(-5px) scale(1.15) rotate(6deg);
-  background-color: transparent; /* Nos aseguramos de que no aparezca ningún fondo */
-}
-
-/* Brillos puros sin círculos de fondo para cada red */
-.social-btn.github:hover .icon-box {
-  color: #333;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
-  background: #fff;
-}
-
-.social-btn.linkedin:hover .icon-box {
-  color: #0a66c2;
-  box-shadow: 0 0 25px rgba(10, 102, 194, 0.7);
-  background: #0a66c2;
-}
-
-.social-btn.whatsapp:hover .icon-box {
-  color: #25d366;
-  box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
-}
-
-.social-btn.instagram:hover .icon-box {
+  transform: translateY(-8px) scale(1.1) rotate(6deg);
   color: #fff;
-  box-shadow: 0 0 25px rgba(228, 64, 95, 0.7);
-  background: #e4405f;
+  /* Todos los iconos brillan en morado al hacer hover */
+  background-color: rgba(168, 85, 247, 0.2);
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(168, 85, 247, 0.5),
+    inset 0 0 15px rgba(168, 85, 247, 0.2); /* Brillo interior */
 }
 
-.social-btn.email:hover .icon-box {
-  color: #333;
-  box-shadow: 0 0 25px rgba(168, 85, 247, 0.7);
-  background: var(--color-accent);
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .socials-content-wrapper {
+    padding: 2rem 1.5rem;
+  }
+
+  .social-links {
+    gap: 1rem;
+  }
+
+  .icon-box {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
 }

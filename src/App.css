@@ -17,6 +17,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 html {
@@ -43,35 +44,36 @@ body {
   display: none;
 }
 
-/* --- Fondo Definitivo: Moiré con Movimiento Libre en Todas Direcciones --- */
-.portfolio-container::before,
+/* --- FONDO NUEVO: Aurora Boreal + Textura de Ruido --- */
+/* Capa 1: Gradientes de color difuminados (Aurora) */
+.portfolio-container::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(168, 85, 247, 0.45), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(59, 130, 246, 0.35), transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(192, 132, 252, 0.15), transparent 60%);
+  filter: blur(80px);
+  /* Reutilizamos tus animaciones pero adaptadas al nuevo fondo */
+  animation: wanderDriftA 30s ease-in-out infinite alternate, spinA 60s linear infinite;
+}
+
+/* Capa 2: Textura de Ruido sutil para acabado premium */
 .portfolio-container::after {
   content: '';
   position: fixed;
-  top: -60%;
-  left: -60%;
-  width: 220%;
-  height: 220%;
-  pointer-events: none;
+  inset: 0;
   z-index: -1;
-  transform: translateZ(0); /* Aceleración por hardware pura */
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Capa 1: Púrpura con desplazamiento multidireccional amplio y giro lento */
-.portfolio-container::before {
-  background-image: radial-gradient(rgba(168, 85, 247, 0.14) 1.5px, transparent 1.5px);
-  background-size: 32px 32px;
-  animation: wanderDriftA 26s ease-in-out infinite alternate, spinA 40s linear infinite;
-}
-
-/* Capa 2: Azul con trayectoria de desplazamiento cruzada y contra-giro */
-.portfolio-container::after {
-  background-image: radial-gradient(rgba(59, 130, 246, 0.11) 1.5px, transparent 1.5px);
-  background-size: 38px 38px;
-  animation: wanderDriftB 32s ease-in-out infinite alternate, spinB 35s linear infinite;
-}
-
-/* Animaciones de desplazamiento libre por toda la pantalla (Ejes X e Y) */
+/* Animaciones (Mantenidas exactamente igual) */
 @keyframes wanderDriftA {
   0% {
     transform: translate(0, 0) scale(1);
@@ -102,7 +104,6 @@ body {
   }
 }
 
-/* Animaciones de rotación independientes */
 @keyframes spinA {
   from { rotate: 0deg; }
   to { rotate: 360deg; }

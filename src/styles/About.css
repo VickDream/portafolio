@@ -1,0 +1,106 @@
+/* src/styles/About.css */
+
+.about-section {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content {
+  max-width: 850px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(168, 85, 247, 0.15); /* Borde sutil morado */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  text-align: left; /* El texto alineado a la izquierda se lee mejor en párrafos */
+  transition: all 0.4s ease;
+}
+
+.about-content:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(168, 85, 247, 0.05);
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+/* Pequeña línea decorativa debajo del título */
+.about-text h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--color-accent, #a855f7);
+  border-radius: 2px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: var(--color-muted, #9ca3af);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.about-text .about-highlight {
+  color: #e0e0e0; /* Un poco más brillante para destacar la segunda parte */
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+/* Etiquetas de habilidades */
+.about-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.about-skills span {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.85rem;
+  color: var(--color-accent, #a855f7);
+  background: rgba(168, 85, 247, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  transition: all 0.3s ease;
+}
+
+.about-skills span:hover {
+  background: rgba(168, 85, 247, 0.2);
+  transform: translateY(-2px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .about-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .about-text h2 {
+    font-size: 2rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .about-skills span {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
+  }
+}
