@@ -8,7 +8,7 @@ export const projectsData = [
   // },
   {
     id: 2,
-    img: "/neonco.webp",
+    img: "/neoncov2.webp",
     name: "NE.ON.CO Rave HardTecho",
     description: "Un rave que la rompera antes de que acabe el año",
     link: "https://ne-on-co.pages.dev/"
