@@ -20,13 +20,13 @@ export const projectsData = [
   //   description: "Descubre tu descripcion semanal y enterate de los último",
   //   link: "https://signozodiacal.pages.dev/"
   // },
-  {
-    id: 4,
-    img: "/nutritrakatelas.webp",
-    name: "Nutri Trakatelas",
-    description: "Descubre como puedes controlar tu peso, base a tu alimentación",
-    link: "https://nutri-trakatelas.pages.dev/"
-  },
+  // {
+  //   id: 4,
+  //   img: "/nutritrakatelas.webp",
+  //   name: "Nutri Trakatelas",
+  //   description: "Descubre como puedes controlar tu peso, base a tu alimentación",
+  //   link: "https://nutri-trakatelas.pages.dev/"
+  // },
   {
     id: 5,
     img: "enigmasoluciones.webp",
